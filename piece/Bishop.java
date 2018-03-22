@@ -1,14 +1,8 @@
-//package piece;
-//
-//import game.Player;
-//
-//public class Bishop extends Piece{
-//
-//	public Bishop(Player p, String s){
-//		super(p, s);
-//	}
-//}
-
+/**
+ *  Bishop.java contains the rules for bishops to move
+ *  @author Omar Morsy
+ *  
+ */
 
 package piece;
 

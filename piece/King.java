@@ -1,3 +1,9 @@
+/**
+ *  King.java contains the rules for kings to move
+ *  @author Omar Morsy
+ *  
+ */
+
 package piece;
 
 import java.util.ArrayList;

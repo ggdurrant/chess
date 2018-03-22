@@ -1,3 +1,9 @@
+/**
+ *  Pawn.java contains the rules for pawns to move
+ *  @author Omar Morsy
+ *  
+ */
+
 package piece;
 
 import java.util.ArrayList;

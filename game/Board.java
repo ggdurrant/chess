@@ -1,3 +1,11 @@
+/**
+ *  Board.java sets up the chess board and initializes all pieces
+ *  in their starting positions, as well as containing methods to 
+ *  get tiles and to print the board
+ *  @author George Durrant
+ *  
+ */
+
 package game;
 
 import piece.Piece;
@@ -14,11 +22,15 @@ public class Board {
 	
 	public Board(){
 		
-		// create white and black player
+		/** create white and black players
+		 * 
+		 */
 		Player white = new Player(0);
 		Player black = new Player(1);
 		
-		// initialize new 9x9 board of Tile objects
+		/** initialize new 9x9 board of Tile objects
+		 * 
+		 */
 		board = new Tile[9][9];
 		// set black/white tiles 
 		for(int i=0; i<9; i++){
@@ -28,7 +40,9 @@ public class Board {
 			}
 		}
 		
-		
+		/** set starting board positions for black pieces
+		 * 
+		 */
 		board[0][0] = new Tile(new Rook(black, "bR"));
 		board[0][1] = new Tile(new Knight(black, "bN"));
 		board[0][2] = new Tile(new Bishop(black, "bB"));
@@ -42,6 +56,9 @@ public class Board {
 			board[1][i] = new Tile(new Pawn(black, "bp"));
 		}
 		
+		/** set starting board positions for white pieces
+		 * 
+		 */
 		board[7][0] = new Tile(new Rook(white, "wR"));
 		board[7][1] = new Tile(new Knight(white, "wN"));
 		board[7][2] = new Tile(new Bishop(white, "wB"));
@@ -58,14 +75,27 @@ public class Board {
 
 	}
 	
+	/** return tile based on coordinates
+	 * 
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public Tile getTile(int x, int y){
 		return board[x][y];
 	}
 	
+	/** return tile array
+	 * 
+	 * @return
+	 */
 	public Tile[][] getBoard(){
 		return board;
 	}
 	
+	/** print the current board based on piece names
+	 * 
+	 */
 	public void printBoard(){
 		String s = "";
 		for(int i=0; i<8; i++){

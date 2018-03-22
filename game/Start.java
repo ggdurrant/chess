@@ -1,3 +1,24 @@
+/**
+ * Start is the main class in our chess program, which runs the actual 
+ * game in the main method. It imports all of the piece classes and
+ * uses the board defined in Board.java, as well as Tile.java and Player.java.
+ * 
+ * There is a white player and a black player, white goes first. The user enters
+ * the coordinates of the piece they want to move and the coordinates they want
+ * to move it to. The piece will move and the board will update with a prompt 
+ * for the next player's turn, or it will be an illegal move and the player will
+ * have to make a move again.
+ * 
+ * The user can resign at any time by typing "resign" instead of their move, can
+ * offer a draw by appending "draw?" to the end of their move, which ends the game
+ * if the opponent responds with "draw", and can enter the type of piece they want
+ * to promote a pawn to if it is capable.
+ * 
+ * @author George Durrant
+ * @author Omar Morsy
+ * 
+ */
+
 package game;
 
 import game.Board;
@@ -18,9 +39,15 @@ public class Start {
 
 	public static void main(String[] args) {
 		
+		/** create new board with starting positions
+		 * 
+		 */
 		// make new board
 		Board game = new Board();
 
+		/** boolean varialbes to track changes
+		 * 
+		 */
 		// quit boolean to end game
 		boolean quit = false;
 		// illegal move boolean
@@ -38,10 +65,16 @@ public class Start {
 		Tile blackCheckerTile = null;
 		Tile whiteCheckerTile = null;
 		
+		/** buffered reader to accept user input
+		 * 
+		 */
 		// make buffered reader for user input
 		BufferedReader inp = new BufferedReader(new InputStreamReader(System.in));
 	
-		// initialize variables
+		
+		/** initialize variables
+		 * 
+		 */
 		String extra, draw, line;
 		int fromx, fromy, tox, toy;
 		boolean enpassantWhite = false;
@@ -50,10 +83,14 @@ public class Start {
 		Tile wkingTile = game.getTile(7,4);
 		Tile bkingTile = game.getTile(0,4);
 		
-		// load game, break only for draw/resign/etc
+		/** load game, break only for draw/resign/etc
+		 * 
+		 */
 		while(!quit){
 		
-		// print board, white player's input
+		/** print board, white player's input
+		 * 
+		 */
 		game.printBoard();
 		System.out.println("\n");
 		
@@ -66,41 +103,54 @@ public class Start {
 		isLegal = false;
 		whiteCheck = false;
 		
+		/** only end turn when legal move has been made
+		 * 
+		 */
 		while(!isLegal){
 		
-			
 			fromx=0;
 			fromy=0;
 			tox=0;
 			toy=0;
 			
-			
 			try { 
-				// read white input
+				/**
+				 * read white input
+				 */
 				line = inp.readLine();
 				
-				// end if resign
+				/** end game with resignation
+				 * 
+				 */
 				if(line.equals("resign")){
 					System.out.println("Black wins");
 					quit = true;
 				}
 				
 				if(!quit){
-					// turn input into int coordinates
+					/**
+					 * turn input into int coordinates
+					 */
 					fromy = (int) line.charAt(0) - 97;
 					fromx = 8 - (line.charAt(1)-'0');
 					toy = (int) line.charAt(3) - 97;
 					tox = 8 - (line.charAt(4)-'0');
 				
-					// if more than coordinates, make extra String
+					/**
+					 * if more than coordinates, make extra String
+					 */
 					if(line.length()>5){
 						extra = line.substring(6, line.length());
 		
-						// player asks for draw
+						/**
+						 * player asks for draw
+						 */
 						if(extra.equals("draw?")){
 							draw = inp.readLine();
 							
-							// if draw agreed, quit
+							/**
+							 * if draw agreed, quit
+							 */
 							if(draw.equals("draw")){
 								quit = true;
 								break;
@@ -110,15 +160,15 @@ public class Start {
 					}
 				}
 				
-				// NEED TO USE COORDINATES TO MOVE
-				
+				/** 
+				 * define current and next pieces and tiles
+				 * based on user input coordinates
+				 */
 				Piece currPiece = game.getTile(fromx, fromy).getPiece();
 				Tile currTile = game.getTile(fromx, fromy);
-				
 					
 				Piece nextPiece = game.getTile(tox, toy).getPiece();
 				Tile nextTile = game.getTile(tox, toy);
-				
 				
 				//Tile bkingTile = game.getTile(0, 4);
 				Tile brook1Tile = game.getTile(0, 0);
@@ -126,6 +176,10 @@ public class Start {
 				
 				ArrayList<Tile> moves = currPiece.goTo(game.getBoard(), fromx, fromy);
 						
+				
+				/** 
+				 * castling procedure
+				 */
 				boolean castleW = false;
 				
 				if(game.getTile(fromx, fromy).getPiece().getName().equals("wK") && fromx==7 && fromy==4 && tox==7 && toy==6) {
@@ -165,6 +219,10 @@ public class Start {
 					}
 				}
 				
+				
+				/** 
+				 * enpassant procedure 
+				 */
 				enpassantWhite = false;
 				
 				if(fromx==6 && tox==4){
@@ -183,6 +241,10 @@ public class Start {
 					}
 				}
 				
+				
+				/** 
+				 * checks for illegal moves
+				 */
 				if(currPiece.getPlayerColor()==0){
 					if(enpassantDoneW == true) {
 						break;
@@ -225,6 +287,9 @@ public class Start {
 					}
 				}
 				
+				/**
+				 * find if king is in check
+				 */
 				ArrayList<Tile> checkMoves = currPiece.goTo(game.getBoard(), tox, toy);
 				if (checkMoves.contains(bkingTile)){
 					blackCheck = true;
@@ -232,6 +297,9 @@ public class Start {
 					whiteCheckerTile = nextTile;
 				}
 					
+				/** 
+				 * find if king is in checkmate
+				 */
 				if(isCheckmate(game, wkingTile)){
 					System.out.println("Black wins");
 					quit = true;
@@ -242,10 +310,14 @@ public class Start {
 		}
 		
 		
-		// continue if quit = false
+		/** 
+		 * continue to black player's turn
+		 */
 		if(!quit){
 			
-			// print board, black player's input
+			/**
+			 * print board, black player's input
+			 */
 			System.out.println();
 			game.printBoard();
 			System.out.println("\n");
@@ -276,31 +348,43 @@ public class Start {
 				toy=0;
 				
 				
-				// read black input
+				/**
+				 * read black input
+				 */
 				line = inp.readLine();
 				
-				// end if resign
+				/**
+				 * end if resign
+				 */
 				if(line.equals("resign")){
 					System.out.println("White wins");
 					quit = true;
 				}
 				
 				if(!quit){
-				// turn input into int coordinates
+				/**
+				 * turn input into int coordinates
+				 */
 				fromy = (int) line.charAt(0) - 97;
 				fromx = 8 - (line.charAt(1)-'0');
 				toy = (int) line.charAt(3) - 97;
 				tox = 8 - (line.charAt(4)-'0');
 			
-				// if more than coordinates, make extra String
+				/**
+				 * if more than coordinates, make extra String
+				 */
 				if(line.length()>5){
 					extra = line.substring(6, line.length());
 
-					// player asks for draw
+					/**
+					 * player asks for draw
+					 */
 					if(extra.equals("draw?")){
 						draw = inp.readLine();
 						
-						// if draw agreed, quit
+						/**
+						 * if draw agreed, quit
+						 */
 						if(draw.equals("draw")){
 							quit = true;
 							break;
@@ -450,9 +534,6 @@ public class Start {
 					}
 				
 					
-
-				
-				
 				if(wkingTile.getPiece()==null){
 					wkingTile = nextTile;
 					if(wrook1Tile.getPiece()==null && wrook2Tile.getPiece()==null){
@@ -477,6 +558,12 @@ public class Start {
 		
 	}
 	
+	/**
+	 * method to determine if king is in danger from opponent pieces
+	 * @param b
+	 * @param k
+	 * @return
+	 */
 	public static boolean isCheckmate(Board b, Tile k){
 		ArrayList<Tile> temp = new ArrayList<Tile>();
 		ArrayList<Tile> list = new ArrayList<Tile>();

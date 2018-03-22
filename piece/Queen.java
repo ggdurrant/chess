@@ -1,3 +1,9 @@
+/**
+ *  Queen.java contains the rules for queens to move
+ *  @author Omar Morsy
+ *  
+ */
+
 package piece;
 
 import java.util.ArrayList;

@@ -1,3 +1,9 @@
+/** 
+ *  Knight.java contains the rules for knights to move
+ *  @author Omar Morsy
+ *  
+ */
+
 package piece;
 
 import java.util.ArrayList;
