@@ -19,7 +19,7 @@ public class Pawn extends Piece{
 	public ArrayList<Tile> goTo(Tile tile[][], int x, int y){
 		
 		nextTiles.clear();
-		if(getColor()==0) {
+		if(getPlayerColor()==0) {
 			if(x==0) {
 				return nextTiles;
 			}
@@ -31,10 +31,10 @@ public class Pawn extends Piece{
 					}
 				}
 			}
-			if( (y>0) && (tile[x-1][y-1].getPiece() != null) && (tile[x-1][y-1].getPiece().getColor() != this.getColor()) ) {
+			if( (y>0) && (tile[x-1][y-1].getPiece() != null) && (tile[x-1][y-1].getPiece().getPlayerColor() != this.getPlayerColor()) ) {
 				nextTiles.add(tile[x-1][y-1]);
 			}
-			if( (y<7) && (tile[x-1][y+1].getPiece() != null) && (tile[x-1][y+1].getPiece().getColor() != this.getColor()) ) {
+			if( (y<7) && (tile[x-1][y+1].getPiece() != null) && (tile[x-1][y+1].getPiece().getPlayerColor() != this.getPlayerColor()) ) {
 				nextTiles.add(tile[x-1][y+1]);
 			}
 		} else {
@@ -50,13 +50,15 @@ public class Pawn extends Piece{
 					}
 				}
 			}
-			if( (y>0) && (tile[x+1][y-1].getPiece() != null) && (tile[x+1][y-1].getPiece().getColor() != this.getColor()) ) {
+			if( (y>0) && (tile[x+1][y-1].getPiece() != null) && (tile[x+1][y-1].getPiece().getPlayerColor() != this.getPlayerColor()) ) {
 				nextTiles.add(tile[x+1][y-1]);
 			}
-			if( (y<7) && (tile[x+1][y+1].getPiece() != null) && (tile[x+1][y+1].getPiece().getColor() != this.getColor()) ) {
+			if( (y<7) && (tile[x+1][y+1].getPiece() != null) && (tile[x+1][y+1].getPiece().getPlayerColor() != this.getPlayerColor()) ) {
 				nextTiles.add(tile[x+1][y+1]);
 			}
 		}
 		return nextTiles;
 	}
 }
+
+

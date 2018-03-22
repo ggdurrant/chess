@@ -17,7 +17,7 @@ public class Knight extends Piece{
 		int desY[] = {y-2, y+2, y-1, y+1, y-2, y+2, y-1, y+1};
 		for (int k=0; k<8; k++) {
 			if((desX[k] >= 0 && desX[k] < 8 && desY[k] >= 0 && desY[k] < 8)) {
-				if((tile[desX[k]][desY[k]].getPiece() == null || tile[desX[k]][desY[k]].getPiece().getColor() != this.getColor() )) {
+				if((tile[desX[k]][desY[k]].getPiece() == null || tile[desX[k]][desY[k]].getPiece().getPlayerColor() != this.getPlayerColor() )) {
 					nextTiles.add(tile[desX[k]][desY[k]]);
 				}
 			}
@@ -26,3 +26,4 @@ public class Knight extends Piece{
 		return nextTiles; // this will be utilized in the Start/ main class
 	}
 }
+

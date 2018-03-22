@@ -58,54 +58,6 @@ public class Tile {
 		return display;
 	}
 	
-	
-	
 
-//	public int x;
-//	public int y;
-//	private boolean occupied;
-//	private Piece piece;
-//	private boolean whiteTile;
-//	private String display;
-//	
-//	public Tile(int x, int y){
-//		this.x = x;
-//		this.y = y;
-//	}
-//	
-//	public Piece getPiece(){
-//		return this.piece;		
-//	}
-//	
-//	public void setPiece(Piece piece){
-//		this.piece = piece;
-//	}
-//	
-//	public void clearTile(){
-//		this.piece = null;
-//	}
-//	
-	
 }
 	
-	
-	
-	
-	
-//	public Tile(int x, int y, Piece piece){
-//		this.x = x;
-//		this.y = y;
-//		
-//		// set alternating white and black tiles
-//		if((x+y)%2==0){
-//			whiteTile = true;
-//		}
-//		else{
-//			whiteTile = false;
-//		}
-//		
-//		this.piece = piece;
-//	}
-	
-	// get Piece on Tile
-

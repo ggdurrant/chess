@@ -39,11 +39,14 @@ public abstract class Piece {
 		return this.color;
 	}
 	
-//	public void setType(String type){
-//		this.type = type;
-//	}
-//	
-//	public void setWhite(boolean isWhite){
-//		this.white = isWhite;
-//	}
+	public Player getPlayer(){
+		return player;
+	}
+	
+	public int getPlayerColor(){
+		return player.getColor();
+	}
+
+
+
 }

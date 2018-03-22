@@ -1,3 +1,15 @@
+//package piece;
+//
+//import game.Player;
+//
+//public class Bishop extends Piece{
+//
+//	public Bishop(Player p, String s){
+//		super(p, s);
+//	}
+//}
+
+
 package piece;
 
 import java.util.ArrayList;
@@ -21,7 +33,7 @@ public class Bishop extends Piece{
 			if(tile[currX][currY].getPiece()==null) {
 				nextTiles.add(tile[currX][currY]);
 			}
-			else if(tile[currX][currY].getPiece().getColor()==this.getColor()) {
+			else if(tile[currX][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			} else {
 				nextTiles.add(tile[currX][currY]);
@@ -38,7 +50,7 @@ public class Bishop extends Piece{
 			
 			if(tile[currX][currY].getPiece()==null) {
 				nextTiles.add(tile[currX][currY]);
-			} else if(tile[currX][currY].getPiece().getColor()==this.getColor()) {
+			} else if(tile[currX][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			} else {
 				nextTiles.add(tile[currX][currY]);
@@ -54,7 +66,7 @@ public class Bishop extends Piece{
 			
 			if(tile[currX][currY].getPiece()==null) {
 				nextTiles.add(tile[currX][currY]);
-			} else if(tile[currX][currY].getPiece().getColor()==this.getColor()) {
+			} else if(tile[currX][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			} else {
 				nextTiles.add(tile[currX][currY]);
@@ -71,7 +83,7 @@ public class Bishop extends Piece{
 			if(tile[currX][currY].getPiece()==null) {
 				nextTiles.add(tile[currX][currY]);
 			}
-			else if(tile[currX][currY].getPiece().getColor()==this.getColor()) {
+			else if(tile[currX][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			}
 			else {

@@ -22,7 +22,7 @@ public class Queen extends Piece{
 			if(tile[currX][y].getPiece()==null) {
 				nextTiles.add(tile[currX][y]);
 			}
-			else if(tile[currX][y].getPiece().getColor()==this.getColor()) {
+			else if(tile[currX][y].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			}
 			else {
@@ -38,7 +38,7 @@ public class Queen extends Piece{
 			if(tile[currX][y].getPiece()==null) {
 				nextTiles.add(tile[currX][y]);
 			}
-			else if(tile[currX][y].getPiece().getColor()==this.getColor()) {
+			else if(tile[currX][y].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			}
 			else {
@@ -55,7 +55,7 @@ public class Queen extends Piece{
 			if(tile[x][currY].getPiece()==null) {
 				nextTiles.add(tile[x][currY]);
 			}
-			else if(tile[x][currY].getPiece().getColor()==this.getColor()) {
+			else if(tile[x][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			}
 			else {
@@ -71,7 +71,7 @@ public class Queen extends Piece{
 				nextTiles.add(tile[x][currY]);
 			}
 			
-			else if(tile[x][currY].getPiece().getColor()==this.getColor()) {
+			else if(tile[x][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			}
 			
@@ -88,7 +88,7 @@ public class Queen extends Piece{
 			if(tile[currX][currY].getPiece()==null) {
 				nextTiles.add(tile[currX][currY]);
 			}
-			else if(tile[currX][currY].getPiece().getColor()==this.getColor()) {
+			else if(tile[currX][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			}
 			else {
@@ -104,7 +104,7 @@ public class Queen extends Piece{
 			if(tile[currX][currY].getPiece()==null) {
 				nextTiles.add(tile[currX][currY]);
 			}
-			else if(tile[currX][currY].getPiece().getColor()==this.getColor()) {
+			else if(tile[currX][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			}
 			else {
@@ -120,7 +120,7 @@ public class Queen extends Piece{
 			if(tile[currX][currY].getPiece()==null) {
 				nextTiles.add(tile[currX][currY]);
 			}
-			else if(tile[currX][currY].getPiece().getColor()==this.getColor()) {
+			else if(tile[currX][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			}
 			else {
@@ -136,7 +136,7 @@ public class Queen extends Piece{
 			if(tile[currX][currY].getPiece()==null) {
 				nextTiles.add(tile[currX][currY]);
 			}
-			else if(tile[currX][currY].getPiece().getColor()==this.getColor()) {
+			else if(tile[currX][currY].getPiece().getPlayerColor()==this.getPlayerColor()) {
 				break;
 			}
 			else {
@@ -149,3 +149,4 @@ public class Queen extends Piece{
 		return nextTiles;
 	}
 }
+
