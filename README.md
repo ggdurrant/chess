@@ -1,6 +1,6 @@
 # Chess
 
-A command line chess engine written in Java which allows two players to consecutively enter their moves, in the form of the piece name and algebraic notation (i.e. e2 e4) and visualize the chess board in the form:
+A command line chess game written in Java which allows two players to consecutively enter their moves, in the form of the piece name and algebraic notation (i.e. e2 e4) and visualize the chess board in the form:
 
 
 bR &nbsp;bN&nbsp; bB&nbsp; bQ&nbsp;&nbsp; bK&nbsp; bB&nbsp; bN&nbsp; bR&nbsp;&nbsp;&nbsp;&nbsp;    8
